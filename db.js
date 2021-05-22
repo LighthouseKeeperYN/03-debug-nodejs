@@ -14,3 +14,12 @@ sequelize.authenticate().then(
         console.log(`Error: ${err}`);
     }
 )
+
+sequelize.import('project', (sequelize, DataTypes) => {
+  return sequelize.define('project', {
+    name: DataTypes.STRING,
+    description: DataTypes.TEXT
+  });
+});
+
+module.exports = sequelize
